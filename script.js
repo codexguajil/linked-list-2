@@ -4,13 +4,16 @@ var bookmarkUrl = $('#bookmark-url');
 var bookmarkSection = $('.section-right');
 
 enterButton.click(bookmarkCreate);
+$(bookmarkSection).on('click','#mark-as-read', readButtonToggle);
 
 function bookmarkCreate(e) {
   e.preventDefault();
-  bookmarkTitle.val();
-  bookmarkUrl.val();
-  bookmarkSection.prepend(`<h2>${bookmarkTitle.val()}</h2>
+  bookmarkSection.prepend(`<article class="appended-bookmark"><h2>${bookmarkTitle.val()}</h2>
       <a href="${bookmarkUrl.val()}">${bookmarkUrl.val()}</a>
-      <button id="mark-as-read">Mark as Read</button>
-      <button id="remove-bookmark">Remove</button>`)
+      <button id="mark-as-read">Unread</button>
+      <button id="remove-bookmark">Delete</button></article>`)
+}
+
+function readButtonToggle(){
+  $( ".appended-bookmark" ).toggleClass( 'read');
 }
