@@ -5,6 +5,7 @@ var bookmarkSection = $('.section-right');
 
 enterButton.click(bookmarkCreate);
 $(bookmarkSection).on('click','#mark-as-read', readButtonToggle);
+$(bookmarkSection).on('click','#remove-bookmark', bookmarkDelete);
 
 function bookmarkCreate(e) {
   e.preventDefault();
@@ -15,5 +16,12 @@ function bookmarkCreate(e) {
 }
 
 function readButtonToggle(){
-  $( ".appended-bookmark" ).toggleClass( 'read');
+  $(this).parent().toggleClass('read');
+  
 }
+
+function bookmarkDelete(){
+  $(this).parent().remove();
+
+}
+
