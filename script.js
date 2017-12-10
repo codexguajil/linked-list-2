@@ -2,7 +2,6 @@ var enterButton = $('.enter-button');
 var bookmarkTitle = $('#bookmark-title');
 var bookmarkUrl = $('#bookmark-url');
 var bookmarkSection = $('.section-right');
-// var markAsReadButton = $('#mark-as-read');
 
 enterButton.click(bookmarkCreate);
 $(bookmarkSection).on('click','#mark-as-read', readButtonToggle);
@@ -16,18 +15,5 @@ function bookmarkCreate(e) {
 }
 
 function readButtonToggle(){
-  console.log('hello') 
   $( ".appended-bookmark" ).toggleClass( 'read');
-    if ( $( this ).parent().is( ".read" ) ) {
-      $("#mark-as-read").text('Unread');
-//     } else if{( $( this ).parent().is( ".read" ) ) {
-//       $("#mark-as-read").text('Unread');
-//       return "sad";
-    }
-
 }
-
-// $("#mark-as-read").click(function(){
-// //     $(".appended-bookmark").toggleClass("read");
-//     console.log('someshit');
-// });
