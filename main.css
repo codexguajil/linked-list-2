@@ -113,6 +113,10 @@ input {
   border: 10px;
 }
 
+.js-errors {
+  margin: 5%;
+}
+
 
 /*Right Section*/
 /*a {
@@ -198,7 +202,7 @@ a:hover {
   }
 
   .section-right {
-    top: 40%;
+    top: 50%;
     bottom: 0px;
 
   }
