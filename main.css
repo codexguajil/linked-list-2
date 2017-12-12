@@ -1,3 +1,102 @@
+* {
+  font-family: sans-serif;
+}
+
+body {
+  background: #CFD8DC;
+  margin: 0;
+}
+
 .read {
-    background:red;
+  background: orange;
+}
+
+section {
+  display: inline-block;
+}
+
+/*Left Section*/
+.bookmark-url {
+  margin: 50px 0 30px 0;
+}
+
+button {
+  border: 0;
+}
+
+.enter-button {
+  background: #FFC107;
+  color: #FFF;
+  font-size: 16px;
+  line-height: 28px;
+  width: 89%;
+  margin-top: 30px;
+}
+
+h1 {
+  color: #FFF;
+  font-size: 72px;
+  font-family: sans-serif;
+  margin-top: 140px;
+}
+
+img {
+  margin: 0 10px 0 10px;
+}
+
+input {
+  font-size: 24px;
+  padding: 5px;
+  width: 87%;
+  line-height: 25px;
+}
+
+.section-left {
+  background: #455A64;
+  position: absolute;
+  text-align: center;
+  height: 100%;
+  width: 50%;
+}
+
+/*Right Section*/
+a {
+  border-bottom: 1px solid #607D8B;
+  color: #607D8B;
+  display: block;
+  padding-bottom: 25px;
+  margin-bottom: 11px;
+}
+
+.appended-bookmark {
+  background: #FFF;
+  border: 1.5px solid #607D8B;
+  height: 150px;
+  margin: 20px auto 30px;
+  padding: 15px 15px 5px 15px;
+  position: relative;
+  width: 87%;
+}
+
+h2 {
+  border-bottom: 1px solid #607D8B;
+  color: #455A64;
+  padding-bottom: 10px;
+  margin: 0 0 25px 0;
+}
+
+#mark-as-read,
+#remove-bookmark {
+  font-size: 12px;
+}
+
+#remove-bookmark {
+  position: absolute;
+  right: 20px;
+}
+
+.section-right {
+  position: absolute;
+  right: 0;
+  width: 50%;
 }
