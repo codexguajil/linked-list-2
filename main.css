@@ -11,25 +11,80 @@ body {
   height: 100%;
 }
 
-/*html, body {
-  background: #CFD8DC;
-  margin: 0;
-  height: 100%;
-}*/
-/*
 .read {
   background: orange;
 }
 
-
-*/
 /*Left Section*/
 .bookmark-url {
-  margin: 10px 0 10px 0;
+  align-items: center;
+  margin: 5%;
+}
+
+.bookmark-title {
+  align-items: center;
+  margin: 5%;
+}
+
+h1 {
+  margin: 0;
+  text-align: center;
+  padding-top: 20px;
+}
+
+h2 {
+  color: #455A64;
+  text-indent: 5%;
+  border-bottom: solid;
+  border-width: thin;
+  /*border-bottom-color: #CFD8DC*/
+}
+
+a {
+  color: #607D8B;
+  display: block;
+  padding-left: 5%;
+  padding-bottom: 5%;
+  border-bottom: solid;
+  border-width: thin;
+}
+
+#mark-as-read:hover {
+  font-weight: bold;
+  color: #F05A28;
+  
+}
+
+#mark-as-read {
+  float: left;
+  margin-left: 5%;
+}
+
+.asText {
+    background:none;
+    border:none;
+    margin:0;
+    padding:0;
+}
+
+article{
+  position: relative;
+}
+
+#remove-bookmark {
+  float: right;
+  margin-right: 5%;
+}
+
+.append-bookmark {
+  margin: 5%;
+  border-bottom: 2px solid red;
 }
 
 button {
-  border: 0;
+  align-items: center;
+  margin: 5%;
+  
 }
 
 .enter-button {
@@ -41,16 +96,10 @@ button {
   margin-top: 10px;
 }
 
-/*h1 {
-  color: #FFF;
-  font-size: 72px;
-  font-family: sans-serif;
-  margin-top: 10px;
-}*/
-
-/*img {
-  margin: 0 10px 0 10px;
-}*/
+img {
+  vertical-align: middle;
+  height: 1cm;
+}
 
 input {
   font-size: 24px;
@@ -59,12 +108,11 @@ input {
   line-height: 25px;
 }
 
-/*.section-left {
-  background: #455A64;
-  text-align: center;
-  height: 100%;
-  width: 50%;
-}*/
+.append-bookmark {
+  border-color: #607D8B;
+  border: 10px;
+}
+
 
 /*Right Section*/
 /*a {
@@ -114,13 +162,10 @@ a:hover {
 }
 */
 
-/*.section-left {
-  left: 0px;
-  top: 0px;
-  position: relative;
+.section-left {
   background-color: #455A64;
   color: #FFFFFF;
-}*/
+}
 
 .section-right {
   position: absolute;
@@ -135,9 +180,11 @@ a:hover {
     left: 50%;
     bottom: 0px;
     display: inline-block;
+  } 
+  .section-left {
+    width: 50%;
+    top: 0px;
   }
-
-  
 }
 
 @media (max-width: 550px) {
@@ -147,9 +194,7 @@ a:hover {
   }
 
   .section-left {
-    top: 45%;
-   
-
+    background: #455A64;
   }
 
   .section-right {

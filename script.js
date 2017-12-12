@@ -17,17 +17,29 @@ function bookmarkCreate(e) {
    } else {
     bookmarkSection.prepend(`<article class="appended-bookmark"><h2>${bookmarkTitle.val()}</h2>
       <a href="${bookmarkUrl.val()}">${bookmarkUrl.val()}</a>
-      <button id="mark-as-read">Read</button>
-      <button id="remove-bookmark">Delete</button></article>`)
+      <button class="asText" id="mark-as-read">Read</button>
+      <button class="asText" id="remove-bookmark">Delete</button></article>`)
    }
   console.log('23')
 }
 
 function readButtonToggle(){
   $(this).parent().toggleClass('read');
+//   var toggled = true;
+//   if(toggled){
+//     $(this).css('color', '#F05A28');
+//     toggled  = false;
+// } else {
+//     $(this).css('color', '#455A64');
+//     clicked  = true;
 }
 
 function bookmarkDelete(){
   $(this).parent().remove();
 }
+
+
+
+
+
 
