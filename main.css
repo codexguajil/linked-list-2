@@ -116,7 +116,8 @@ h2 {
 }
 
 /*pseudo-elements*/
-#mark-as-read:focus {
+#mark-as-read,
+#remove-bookmark:focus {
   outline: 0;
 }
 

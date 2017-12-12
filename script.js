@@ -4,10 +4,12 @@ var enterButton = $('.js-submit-bookmark');
 var bookmarkTitle = $('.js-type-title');
 var bookmarkUrl = $('.js-type-url');
 var bookmarkSection = $('.js-bookmark-section');
+var clearReadButton = $('.js-clear-click');
 
 enterButton.click(bookmarkCreate);
-$(bookmarkSection).on('click','#mark-as-read', readButtonToggle, addClearButton);
+$(bookmarkSection).on('click','#mark-as-read', readButtonToggle);
 $(bookmarkSection).on('click','#remove-bookmark', bookmarkDelete);
+$(bookmarkSection).on('click', clearReadButton, clearReadBookmarks);
 bookmarkTitle.on('keyup', enableEnterButton);
 bookmarkUrl.on('keyup', enableEnterButton);
 
@@ -38,4 +40,6 @@ function enableEnterButton() {
    } else {disableEnterButton()};
 };
 
-function addClearButton() {}
+function clearReadBookmarks() {
+  console.log('heloo');
+}
