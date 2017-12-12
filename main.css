@@ -55,6 +55,15 @@ input {
   height: 100%;
 }
 
+/*Pseudo-Elements*/
+.enter-button:disabled {
+  background: grey;
+}
+
+.enter-button:hover {
+  background: #FFD773;
+}
+
 /*Right Section*/
 a {
   border-bottom: 1px solid #607D8B;
