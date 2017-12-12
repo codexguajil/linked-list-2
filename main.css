@@ -1,24 +1,31 @@
 
 *{
   font-family: 'Open Sans', sans-serif;
-
-body {
-  background: #CFD8DC;
-  margin: 0;
-
 }
 
+.container{
+  margin: 0;
+}
+
+body {
+  height: 100%;
+}
+
+/*html, body {
+  background: #CFD8DC;
+  margin: 0;
+  height: 100%;
+}*/
+/*
 .read {
   background: orange;
 }
 
-section {
-  display: inline-block;
-}
 
+*/
 /*Left Section*/
 .bookmark-url {
-  margin: 50px 0 30px 0;
+  margin: 10px 0 10px 0;
 }
 
 button {
@@ -31,19 +38,19 @@ button {
   font-size: 16px;
   line-height: 28px;
   width: 89%;
-  margin-top: 30px;
+  margin-top: 10px;
 }
 
-h1 {
+/*h1 {
   color: #FFF;
   font-size: 72px;
   font-family: sans-serif;
-  margin-top: 140px;
-}
+  margin-top: 10px;
+}*/
 
-img {
+/*img {
   margin: 0 10px 0 10px;
-}
+}*/
 
 input {
   font-size: 24px;
@@ -52,19 +59,17 @@ input {
   line-height: 25px;
 }
 
-.section-left {
+/*.section-left {
   background: #455A64;
-  position: absolute;
   text-align: center;
   height: 100%;
   width: 50%;
-}
+}*/
 
 /*Right Section*/
-a {
+/*a {
   border-bottom: 1px solid #607D8B;
   color: #607D8B;
-  display: block;
   padding-bottom: 25px;
   margin-bottom: 11px;
 }
@@ -72,11 +77,10 @@ a {
 .appended-bookmark {
   background: #FFF;
   border: 1.5px solid #607D8B;
-  height: 150px;
-  margin: 20px auto 30px;
-  padding: 15px 15px 5px 15px;
-  position: relative;
-  width: 87%;
+  height: 150px;*/
+  /*margin: 20px auto 30px;
+  padding: 15px 15px 5px 15px;*/
+ /* width: 87%;
 }
 
 h2 {
@@ -94,7 +98,7 @@ h2 {
 #remove-bookmark {
   position: absolute;
   right: 20px;
-}
+}*/
 
 
 a:hover {
@@ -102,10 +106,57 @@ a:hover {
   color: #455A64;
   width: 800;
 }
+/*
+.section-right {
+  right: 0;
+  width: 50%;
+  position: relative;
+}
+*/
+
+/*.section-left {
+  left: 0px;
+  top: 0px;
+  position: relative;
+  background-color: #455A64;
+  color: #FFFFFF;
+}*/
 
 .section-right {
   position: absolute;
-  right: 0;
-  width: 50%;
+  background-color: #CFD8DC;
+  color: #FFFFFF;
 }
 
+@media screen and (min-width: 551px) {
+  .section-right{
+    width: 50%;
+    top: 0px;
+    left: 50%;
+    bottom: 0px;
+    display: inline-block;
+  }
+
+  
+}
+
+@media (max-width: 550px) {
+  section {
+    width: 100%;
+    display: block;
+  }
+
+  .section-left {
+    top: 45%;
+   
+
+  }
+
+  .section-right {
+    top: 40%;
+    bottom: 0px;
+
+  }
+  
+ }
+  

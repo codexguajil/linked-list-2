@@ -10,7 +10,7 @@ $(bookmarkSection).on('click','#remove-bookmark', bookmarkDelete);
 function bookmarkCreate(e) {
   e.preventDefault();
   var result = (/((?:https?\:\/\/|www\.)(?:[-a-z0-9]+\.)*[-a-z0-9]+.*)/i).test($(bookmarkUrl).val());
-   if(($("#bookmark-title").val() === '')) {
+   if(($(".js-type-title").val() === '')) {
     console.log('Be sure you have entered a title.');
    } else if (result === false) {
     console.log('Your url address seems odd.  Try copying the url from your site and paste it into the field.')
@@ -20,7 +20,7 @@ function bookmarkCreate(e) {
       <button id="mark-as-read">Read</button>
       <button id="remove-bookmark">Delete</button></article>`)
    }
-  
+  console.log('23')
 }
 
 function readButtonToggle(){
