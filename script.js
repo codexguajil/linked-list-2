@@ -50,7 +50,3 @@ function enableEnterButton() {
      enterButton.prop('disabled', false);
    } else {disableEnterButton()};
 };
-
-function clearReadBookmarks() {
-  console.log('heloo');
-}
