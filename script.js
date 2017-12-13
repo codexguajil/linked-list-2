@@ -9,7 +9,6 @@ var clearReadButton = $('.js-clear-click');
 enterButton.click(bookmarkCreate);
 $(bookmarkSection).on('click','#mark-as-read', readButtonToggle);
 $(bookmarkSection).on('click','#remove-bookmark', bookmarkDelete);
-$(bookmarkSection).on('click', clearReadButton, clearReadBookmarks);
 bookmarkTitle.on('keyup', enableEnterButton);
 bookmarkUrl.on('keyup', enableEnterButton);
 
