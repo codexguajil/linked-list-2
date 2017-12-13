@@ -1,5 +1,5 @@
-* {
-  font-family: sans-serif;
+*{
+  font-family: 'Open Sans', sans-serif;
 }
 
 body {
@@ -104,9 +104,16 @@ h2 {
   max-height: 100%;
   overflow: scroll;
   right: 0;
+  width: 50%;
 }
 
 /*pseudo-elements*/
+a:hover {
+  text-decoration: underline solid #FFC107;
+  color: #455A64;
+  width: 800;
+}
+
 #mark-as-read:focus {
   outline: 0;
 }
