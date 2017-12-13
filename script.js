@@ -35,10 +35,12 @@ function bookmarkCreate(e) {
    }
 };
 
-$('#read_books').html() = counter + ' = Total Bookmarks /n'
-function whenBooksAreRead() {
+
+$('span').append(readLinks)
+
+function whenBooksAreReadMessage() {
   if readLinks !== 0;
-  $('#read-books').html() = '<p>' + 'You have read ' + readLinks + ' books.' + '<p>'
+  $('#read-books').append(`<p> + 'You have read ' + readLinks + ' books.' + <p>`)'
 }
 
 
