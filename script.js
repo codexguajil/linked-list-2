@@ -29,6 +29,7 @@ function bookmarkCreate(e) {
 
 
 function readButtonToggle(){
+  $(this).toggleClass('read-clicked');
   $(this).parent().toggleClass('read');
 //   var toggled = true;
 //   if(toggled){
