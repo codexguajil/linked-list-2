@@ -4,7 +4,7 @@ var enterButton = $('.js-submit-bookmark');
 var bookmarkTitle = $('.js-type-title');
 var bookmarkUrl = $('.js-type-url');
 var bookmarkSection = $('.js-bookmark-section');
-var clearReadButton = $('.js-clear-click');
+var errors = $('.js-errors');
 
 enterButton.click(bookmarkCreate);
 $(bookmarkSection).on('click','#mark-as-read', readButtonToggle);
@@ -15,11 +15,21 @@ bookmarkUrl.on('keyup', enableEnterButton);
 
 function bookmarkCreate(e) {
   e.preventDefault();
-  bookmarkSection.prepend(`<article class="appended-bookmark"><h2>${bookmarkTitle.val()}</h2>
-    <a href="${bookmarkUrl.val()}">${bookmarkUrl.val()}</a>
-    <button id="mark-as-read">Read</button>
-    <button id="remove-bookmark">Delete</button></article>`);
-};
+  var result = (/((?:https?\:\/\/|www\.)(?:[-a-z0-9]+\.)*[-a-z0-9]+.*)/i).test($(bookmarkUrl).val());
+   if(($(".js-type-title").val() === '')) {
+    document.querySelector('.js-errors').innerHTML = 'Be sure you have entered a title.';
+    // console.log('Be sure you have entered a title.');
+   } else if (result === false) {
+    document.querySelector('.js-errors').innerHTML = 'Your url address seems odd.  Try copying the url from your site and paste it into the field.';
+    // console.log('Your url address seems odd.  Try copying the url from your site and paste it into the field.')
+   } else {
+    bookmarkSection.prepend(`<article class="appended-bookmark"><h2>${bookmarkTitle.val()}</h2>
+      <a href="${bookmarkUrl.val()}">${bookmarkUrl.val()}</a>
+      <button class="asText" id="mark-as-read">Read</button>
+      <button class="asText" id="remove-bookmark">Delete</button></article>`)
+   }
+  console.log('23')
+}
 
 function readButtonToggle(){
   $(this).toggleClass('read-clicked');
@@ -40,6 +50,3 @@ function enableEnterButton() {
    } else {disableEnterButton()};
 };
 
-function clearReadBookmarks() {
-  console.log('heloo');
-}
