@@ -4,17 +4,17 @@ var enterButton = $('.js-submit-bookmark');
 var bookmarkTitle = $('.js-type-title');
 var bookmarkUrl = $('.js-type-url');
 var bookmarkSection = $('.js-bookmark-section');
-var clearReadButton = $('.js-clear-click');
+var clearReadButton = $('.js-clear-read');
 
 enterButton.click(bookmarkCreate);
 $(bookmarkSection).on('click','#mark-as-read', readButtonToggle);
 $(bookmarkSection).on('click','#remove-bookmark', bookmarkDelete);
 bookmarkTitle.on('keyup', enableEnterButton);
 bookmarkUrl.on('keyup', enableEnterButton);
+clearReadButton.on('click', clearReadBookmarks);
 
 function bookmarkCreate(e) {
   e.preventDefault();
-
   var result = (/((?:https?\:\/\/|www\.)(?:[-a-z0-9]+\.)*[-a-z0-9]+.*)/i).test($(bookmarkUrl).val());
    if(($(".js-type-title").val() === '')) {
     document.querySelector('.js-errors').innerHTML = 'Be sure you have entered a title.';
@@ -28,17 +28,38 @@ function bookmarkCreate(e) {
       <a href="${bookmarkUrl.val()}">${bookmarkUrl.val()}</a>
       <button class="asText" id="mark-as-read">Read</button>
       <button class="asText" id="remove-bookmark">Delete</button></article>`)
+      counter++
+      readOrUnread();
    }
 };
 
-function readButtonToggle(){
+var readLinks = 0;
+var unreadLinks = 0;
+var counter = 0;
+function readButtonToggle() {
   $(this).toggleClass('read-clicked');
   $(this).parent().toggleClass('read');
+  readOrUnread();
 };
 
-function bookmarkDelete(){
-  $(this).parent().remove();
+function readOrUnread() {
+  readLinks = $('.read').length;
+  unreadLinks = counter - readLinks;
+  console.log(readLinks, unreadLinks);
 };
+
+function bookmarkDelete() {
+  $(this).parent().remove();
+  counter--;
+  readOrUnread();
+};
+
+function clearReadBookmarks() {
+  $('.read').remove();
+  readLinks = 0;
+  counter = unreadLinks;
+  readOrUnread();
+}
 
 function disableEnterButton() {
     enterButton.prop('disabled', true);
