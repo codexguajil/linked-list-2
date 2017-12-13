@@ -1,19 +1,16 @@
-
 *{
   font-family: 'Open Sans', sans-serif;
+}
 
 body {
   background: #CFD8DC;
   margin: 0;
-
-}
-
-.read {
-  background: orange;
 }
 
 section {
   display: inline-block;
+  position: absolute;
+  width: 50%;
 }
 
 /*Left Section*/
@@ -29,20 +26,20 @@ button {
   background: #FFC107;
   color: #FFF;
   font-size: 16px;
-  line-height: 28px;
-  width: 89%;
+  line-height: 32px;
+  width: 90%;
   margin-top: 30px;
 }
 
 h1 {
   color: #FFF;
-  font-size: 72px;
+  font-size: 90px;
   font-family: sans-serif;
   margin-top: 140px;
 }
 
 img {
-  margin: 0 10px 0 10px;
+  margin: 0 10px;
 }
 
 input {
@@ -54,10 +51,8 @@ input {
 
 .section-left {
   background: #455A64;
-  position: absolute;
   text-align: center;
   height: 100%;
-  width: 50%;
 }
 
 /*Right Section*/
@@ -88,7 +83,16 @@ h2 {
 
 #mark-as-read,
 #remove-bookmark {
+  background: 0;
   font-size: 12px;
+}
+
+.read {
+  background: #F2F4F4;
+}
+
+.read-clicked {
+  color: #F05A28;
 }
 
 #remove-bookmark {
@@ -96,16 +100,83 @@ h2 {
   right: 20px;
 }
 
+.section-right {
+  max-height: 100%;
+  overflow: scroll;
+  right: 0;
+  width: 50%;
+}
 
+/*pseudo-elements*/
 a:hover {
   text-decoration: underline solid #FFC107;
   color: #455A64;
   width: 800;
 }
 
-.section-right {
-  position: absolute;
-  right: 0;
-  width: 50%;
+#mark-as-read:focus {
+  outline: 0;
 }
 
+#mark-as-read,
+#remove-bookmark:hover {
+  cursor: pointer;
+}
+
+/*Media Queries*/
+@media (max-width: 1200px) {
+  h1 {
+    font-size: 72px;
+  }
+}
+
+@media (max-width: 980px) {
+  h1 {
+    font-size: 50px
+  }
+}
+
+@media (max-width: 790px) {
+  h1 {
+    font-size: 38px
+  }
+}
+
+/*Mobile Media Query*/
+@media (max-width: 620px) {
+  .bookmark-title {
+    margin-top: 20px;
+  }
+
+  .bookmark-url {
+    margin: 20px 0 auto;
+  }
+  
+  .enter-button {
+    margin-bottom: 30px;
+  }
+
+  h1 {
+    font-size: 30px;
+    margin: 0;
+    padding-top: 20px;
+  }
+
+  img {
+    height: 25px;
+    margin: 0 5px;
+    width: 50px;
+  }
+
+  section {
+    display: block;
+    height: 50%;
+    position: relative;
+    width: 100%;
+  }
+
+  .section-right {
+  max-height: 375px;
+  overflow: scroll;
+  }
+}
