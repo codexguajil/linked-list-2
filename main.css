@@ -22,6 +22,15 @@ button {
   border: 0;
 }
 
+.clear-read {
+  background: red;
+  color: black;
+  font-size: 16px;
+  line-height: 32px;
+  margin-top: 20px;
+  width: 90%;
+}
+
 .enter-button {
   background: #FFC107;
   color: #FFF;
@@ -56,12 +65,21 @@ input {
 }
 
 /*Pseudo-Elements*/
+.clear-read:disabled {
+  background: grey;
+}
+
 .enter-button:disabled {
   background: grey;
 }
 
-.enter-button:hover {
+.clear-read:enabled:hover {
+  background: rgba(255,0,0,.5);
+}
+
+.enter-button:enabled:hover {
   background: #FFD773;
+  cursor: pointer;
 }
 
 /*Right Section*/
@@ -155,7 +173,7 @@ h2 {
     margin: 20px 0 auto;
   }
   
-  .enter-button {
+  .clear-read {
     margin-bottom: 30px;
   }
 
