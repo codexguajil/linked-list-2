@@ -2,9 +2,13 @@ $(document).ready(disableEnterButton);
 
 var enterButton = $('.js-submit-bookmark');
 var bookmarkTitle = $('.js-type-title');
+var bookmarks = $('.appended-bookmark');
 var bookmarkUrl = $('.js-type-url');
 var bookmarkSection = $('.js-bookmark-section');
 var clearReadButton = $('.js-clear-read');
+var readLinks = 0;
+var unreadLinks = 0;
+var counter = 0;
 
 enterButton.click(bookmarkCreate);
 $(bookmarkSection).on('click','#mark-as-read', readButtonToggle);
@@ -28,31 +32,45 @@ function bookmarkCreate(e) {
       <a href="${bookmarkUrl.val()}">${bookmarkUrl.val()}</a>
       <button class="asText" id="mark-as-read">Read</button>
       <button class="asText" id="remove-bookmark">Delete</button></article>`)
-      counter++
-      readOrUnread();
-      enableClearButton();
+    counter++;
+    enableClearButton();
+    readOrUnread();
+    whenBooksAreReadMessage();
+    bookmarkNumberDisplay();
    }
 };
 
-var readLinks = 0;
-var unreadLinks = 0;
-var counter = 0;
-function readButtonToggle() {
+function bookmarkNumberDisplay() {
+  $('span').text(counter);
+}
+
+function whenBooksAreReadMessage() {
+  if (readLinks > 0){ 
+    $('#read-books-message').text('You have read ' + readLinks  +' books.');
+  } else {
+    $('#read-books-message').text('');
+  }; 
+};
+
+function readButtonToggle(){
   $(this).toggleClass('read-clicked');
   $(this).parent().toggleClass('read');
   readOrUnread();
+  whenBooksAreReadMessage();
+  bookmarkNumberDisplay();
 };
-
+  
 function readOrUnread() {
   readLinks = $('.read').length;
   unreadLinks = counter - readLinks;
-  console.log(readLinks, unreadLinks);
 };
 
 function bookmarkDelete() {
   $(this).parent().remove();
   counter--;
   readOrUnread();
+  whenBooksAreReadMessage();
+  bookmarkNumberDisplay();
 };
 
 function clearReadBookmarks() {
