@@ -30,6 +30,7 @@ function bookmarkCreate(e) {
       <button class="asText" id="remove-bookmark">Delete</button></article>`)
       counter++
       readOrUnread();
+      enableClearButton();
    }
 };
 
@@ -59,9 +60,10 @@ function clearReadBookmarks() {
   readLinks = 0;
   counter = unreadLinks;
   readOrUnread();
-}
+};
 
 function disableEnterButton() {
+    clearReadButton.prop('disabled', true);
     enterButton.prop('disabled', true);
 };
 
@@ -69,4 +71,8 @@ function enableEnterButton() {
     if (bookmarkTitle.val() != 0 || bookmarkUrl.val() != 0) {
      enterButton.prop('disabled', false);
    } else {disableEnterButton()};
+};
+
+function enableClearButton() {
+  clearReadButton.prop('disabled', false);
 };
