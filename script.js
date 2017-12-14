@@ -20,7 +20,7 @@ clearReadButton.on('click', clearReadBookmarks);
 function bookmarkCreate(e) {
   e.preventDefault();
   var result = (/((?:https?\:\/\/|www\.)(?:[-a-z0-9]+\.)*[-a-z0-9]+.*)/i).test($(bookmarkUrl).val());
-   if(($(".js-type-title").val() === '')) {
+   if (($(".js-type-title").val() === '')) {
     document.querySelector('.js-errors').innerHTML = 'Be sure you have entered a title.';
     // console.log('Be sure you have entered a title.');
    } else if (result === false) {
@@ -78,6 +78,8 @@ function clearReadBookmarks() {
   readLinks = 0;
   counter = unreadLinks;
   readOrUnread();
+  whenBooksAreReadMessage();
+  bookmarkNumberDisplay();
 };
 
 function disableEnterButton() {
@@ -88,7 +90,9 @@ function disableEnterButton() {
 function enableEnterButton() {
     if (bookmarkTitle.val() != 0 || bookmarkUrl.val() != 0) {
      enterButton.prop('disabled', false);
-   } else {disableEnterButton()};
+    } else {
+      disableEnterButton();
+    };
 };
 
 function enableClearButton() {
