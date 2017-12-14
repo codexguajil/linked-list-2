@@ -5,7 +5,7 @@ var bookmarkTitle = $('.js-type-title');
 var bookmarks = $('.appended-bookmark');
 var bookmarkUrl = $('.js-type-url');
 var bookmarkSection = $('.js-bookmark-section');
-var clearReadButton = $('.js-clear-click');
+var clearReadButton = $('.js-clear-read');
 
 
 enterButton.click(bookmarkCreate);
@@ -13,6 +13,7 @@ $(bookmarkSection).on('click','#mark-as-read', readButtonToggle);
 $(bookmarkSection).on('click','#remove-bookmark', bookmarkDelete);
 bookmarkTitle.on('keyup', enableEnterButton);
 bookmarkUrl.on('keyup', enableEnterButton);
+clearReadButton.on('click', clearReadBookmarks);
 
 function bookmarkCreate(e) {
   e.preventDefault();
@@ -29,43 +30,60 @@ function bookmarkCreate(e) {
       <a href="${bookmarkUrl.val()}">${bookmarkUrl.val()}</a>
       <button class="asText" id="mark-as-read">Read</button>
       <button class="asText" id="remove-bookmark">Delete</button></article>`)
+
     counter++;
     readOrUnread();
-    whenBooksAreRead();
+    whenBooksAreReadMessage();
+    bookmarkNumberDisplay();
    }
 };
-
-
-$('span').append(readLinks)
-
-function whenBooksAreReadMessage() {
-  if readLinks !== 0;
-  $('#read-books').append(`<p> + 'You have read ' + readLinks + ' books.' + <p>`)'
+function bookmarkNumberDisplay() {
+  $('span').text(counter);
 }
 
+function whenBooksAreReadMessage() {
+  if (readLinks > 0){ 
+    $('#read-books-message').text('You have read ' + readLinks  +' books.');
+    
+  }else {
+    $('#read-books-message').text('');
+    
+  }; 
+}
 
 function readButtonToggle(){
   $(this).toggleClass('read-clicked');
   $(this).parent().toggleClass('read');
   readOrUnread();
-  whenBooksAreRead();
+  whenBooksAreReadMessage();
+  bookmarkNumberDisplay();
 }
   
 var readLinks = 0;
 var unreadLinks = 0;
 var counter = 0;
+
 function readOrUnread() {
   readLinks = $('.read').length;
   unreadLinks = counter - readLinks
   console.log(readLinks, unreadLinks);
   }
 
-function bookmarkDelete(){
+function bookmarkDelete() {
   $(this).parent().remove();
   counter--;
   readOrUnread();
-  whenBooksAreRead();
+  whenBooksAreReadMessage();
+  bookmarkNumberDisplay();
+
 };
+
+function clearReadBookmarks() {
+  $('.read').remove();
+  readLinks = 0;
+  counter = unreadLinks;
+  readOrUnread();
+}
 
 function disableEnterButton() {
     enterButton.prop('disabled', true);
